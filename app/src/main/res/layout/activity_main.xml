@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:columnCount="4"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/c"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/Hooks"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/Percent"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/Delete"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_7"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_8"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_9"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/Multiplication"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_4"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_5"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_6"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/subtraction"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_1"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_2"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_3"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/plus"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/plus_minus"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/_0"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/dot"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="@dimen/Width_Button"
+        android:layout_height="@dimen/Height_Button"
+        android:text="@string/equal"
+        app:cornerRadius="@dimen/Radius_Button" />
+
+</GridLayout>
+
+
+
+
+
+
