@@ -22,9 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
-            android:hint="@string/lets_calculate"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
             android:textSize="20sp" />
 
 

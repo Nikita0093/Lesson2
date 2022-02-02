@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     int DisplayCounterOne = 0;
     int DisplayCounterTwo = 0;
+    int DisplaySymbol = 0;
     TextView DisplayInfo;
     Button buttonBackspace;
     Button buttonOne;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonBackspace.setOnClickListener(this);
         buttonPlus.setOnClickListener(this);
         buttonEqual.setOnClickListener(this);
+        buttonMultiplication.setOnClickListener(this);
+        buttonSubtraction.setOnClickListener(this);
+        buttonDelete.setOnClickListener(this);
+
     }
 
 
@@ -143,27 +148,90 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case (R.id.buttonPlus): {
+                DisplaySymbol = 1;
                 try {
                     DisplayCounterOne = Integer.parseInt(DisplayInfo.getText().toString());
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
+                    System.out.println("Could not parse " + e);
+                }
+                DisplayInfo.setText(null);
+                break;
+            }
+            case (R.id.buttonSubtraction): {
+                DisplaySymbol = 2;
+                try {
+                    DisplayCounterOne = Integer.parseInt(DisplayInfo.getText().toString());
+                } catch (NumberFormatException e) {
+                    System.out.println("Could not parse " + e);
+                }
+                DisplayInfo.setText(null);
+                break;
+            }
+            case (R.id.buttonMultiplication): {
+                DisplaySymbol = 3;
+                try {
+                    DisplayCounterOne = Integer.parseInt(DisplayInfo.getText().toString());
+                } catch (NumberFormatException e) {
+                    System.out.println("Could not parse " + e);
+                }
+                DisplayInfo.setText(null);
+                break;
+            }
+            case (R.id.buttonDelete): {
+                DisplaySymbol = 4;
+                try {
+                    DisplayCounterOne = Integer.parseInt(DisplayInfo.getText().toString());
+                } catch (NumberFormatException e) {
                     System.out.println("Could not parse " + e);
                 }
                 DisplayInfo.setText(null);
                 break;
             }
             case (R.id.buttonEqual): {
-                try {
-                    DisplayCounterTwo = Integer.parseInt(DisplayInfo.getText().toString());
-                } catch(NumberFormatException e) {
-                    System.out.println("Could not parse " + e);
-                };
-                  int a = DisplayCounterOne + DisplayCounterTwo;
-                DisplayInfo.setText(" " + a);
-                break;
-            }
+                if (DisplaySymbol == 1) {
+                    try {
+                        DisplayCounterTwo = Integer.parseInt(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    int a = DisplayCounterOne + DisplayCounterTwo;
+                    DisplayInfo.setText(" " + a);
+                    break;
+                } else if (DisplaySymbol == 2) {
+                    try {
+                        DisplayCounterTwo = Integer.parseInt(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    int a = DisplayCounterOne - DisplayCounterTwo;
+                    DisplayInfo.setText(" " + a);
+                    break;
 
+                } else if (DisplaySymbol == 3) {
+                    try {
+                        DisplayCounterTwo = Integer.parseInt(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    int a = DisplayCounterOne * DisplayCounterTwo;
+                    DisplayInfo.setText(" " + a);
+                    break;
+                } else if (DisplaySymbol == 4) {
+                    try {
+                        DisplayCounterTwo = Integer.parseInt(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    int a = DisplayCounterOne / DisplayCounterTwo;
+                    DisplayInfo.setText(" " + a);
+                    break;
+
+                }
+            }
         }
     }
 }
+
+
 
 
