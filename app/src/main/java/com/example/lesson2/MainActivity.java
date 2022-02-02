@@ -9,7 +9,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    int DisplayCounter = 0;
+    int DisplayCounterOne = 0;
+    int DisplayCounterTwo = 0;
     TextView DisplayInfo;
     Button buttonBackspace;
     Button buttonOne;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Initialization();
         SetListener();
+        Calculating();
 
 
     }
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonNine.setOnClickListener(this);
         buttonDot.setOnClickListener(this);
         buttonBackspace.setOnClickListener(this);
+        buttonPlus.setOnClickListener(this);
+        buttonEqual.setOnClickListener(this);
     }
 
 
@@ -81,6 +85,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonZero = findViewById(R.id.buttonZero);
         buttonDot = findViewById(R.id.buttonDot);
         buttonEqual = findViewById(R.id.buttonEqual);
+    }
+
+    public void Calculating() {
+
     }
 
     @Override
@@ -132,6 +140,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case (R.id.buttonBackspace): {
                 DisplayInfo.setText(null);
+                break;
+            }
+            case (R.id.buttonPlus): {
+                try {
+                    DisplayCounterOne = Integer.parseInt(DisplayInfo.getText().toString());
+                } catch(NumberFormatException e) {
+                    System.out.println("Could not parse " + e);
+                }
+                DisplayInfo.setText(null);
+                break;
+            }
+            case (R.id.buttonEqual): {
+                try {
+                    DisplayCounterTwo = Integer.parseInt(DisplayInfo.getText().toString());
+                } catch(NumberFormatException e) {
+                    System.out.println("Could not parse " + e);
+                };
+                  int a = DisplayCounterOne + DisplayCounterTwo;
+                DisplayInfo.setText(" " + a);
                 break;
             }
 
