@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Lesson2</string>
-    <string name="c">C</string>
+    <string name="C">C</string>
     <string name="Hooks">()</string>
     <string name="Percent">%</string>
     <string name="Delete">/</string>
@@ -20,4 +20,5 @@
     <string name="_0">0</string>
     <string name="Dot">.</string>
     <string name="Equal">=</string>
+    <string name="lets_calculate">Lets Calculate!</string>
 </resources>

@@ -14,13 +14,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:orientation="vertical"
-        android:rowCount="5">
+        android:rowCount="6">
+
+        <TextView
+            android:id="@+id/DisplayInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:hint="@string/lets_calculate"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp" />
+
 
         <Button
             android:id="@+id/buttonBackspace"
             android:layout_width="@dimen/Width_Button"
             android:layout_height="@dimen/Height_Button"
-            android:text="@string/c"
+            android:text="@string/C"
             app:cornerRadius="@dimen/Radius_Button" />
 
         <Button
@@ -158,6 +170,7 @@
 
 
     </GridLayout>
+
 </FrameLayout>
 
 
