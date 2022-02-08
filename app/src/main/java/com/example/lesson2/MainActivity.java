@@ -14,7 +14,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double DisplayCounterOne = 0;
     double DisplayCounterTwo = 0;
     double DisplayCounterThree = 0;
+    double DisplayEqual = 0;
     int DotState = 0;
+    int PlusState = 0;
+    int SubtractionState = 0;
+    int MultiplicationState = 0;
+    int DeleteState = 0;
     int DisplaySymbol = 0;
     TextView DisplayInfo;
     TextView DisplayInfo_Visible;
@@ -132,51 +137,91 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case (R.id.buttonZero): {
                 DisplayInfo.append("0");
                 DisplayInfo_Visible.append("0");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonOne): {
                 DisplayInfo.append("1");
                 DisplayInfo_Visible.append("1");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonTwo): {
                 DisplayInfo.append("2");
                 DisplayInfo_Visible.append("2");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonThree): {
                 DisplayInfo.append("3");
                 DisplayInfo_Visible.append("3");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonFour): {
                 DisplayInfo.append("4");
                 DisplayInfo_Visible.append("4");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonFive): {
                 DisplayInfo.append("5");
                 DisplayInfo_Visible.append("5");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonSix): {
                 DisplayInfo.append("6");
                 DisplayInfo_Visible.append("6");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonSeven): {
                 DisplayInfo.append("7");
                 DisplayInfo_Visible.append("7");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonEight): {
                 DisplayInfo.append("8");
                 DisplayInfo_Visible.append("8");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonNine): {
                 DisplayInfo.append("9");
                 DisplayInfo_Visible.append("9");
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
                 break;
             }
             case (R.id.buttonDot): {
@@ -189,84 +234,126 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     System.out.println("Ошибка");
                 }
                 break;
-
             }
             case (R.id.buttonBackspace): {
                 DotState = 0;
+                PlusState = 0;
+                SubtractionState = 0;
+                MultiplicationState = 0;
+                DeleteState = 0;
+                DisplayCounterOne = 0;
+                DisplayCounterTwo = 0;
+                DisplayCounterThree = 0;
+                DisplayEqual = 0;
                 DisplayInfo.setText(null);
                 DisplayInfo_Visible.setText(null);
-                DisplayCounterThree = 0;
-                DisplayCounterTwo = 0;
                 break;
             }
             case (R.id.buttonPlus): {
                 DisplaySymbol = 1;
                 DotState = 0;
-                try {
-                    DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
-                } catch (NumberFormatException e) {
-                    System.out.println("Could not parse " + e);
-                }
-                DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
-                DisplayCounterOne = 0;
-                DisplayInfo_Visible.append("+");
-                DisplayInfo.setText(null);
+                if (PlusState == 0) {
+                    try {
+                        DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                    DisplayCounterOne = 0;
+                    PlusState = 1;
+                    SubtractionState = 1;
+                    MultiplicationState = 1;
+                    DeleteState = 1;
+                    DisplayInfo_Visible.append("+");
+                    DisplayInfo.setText(null);
+                    break;
+                } else {
 
-                break;
+                    System.out.println("Ошибка");
+                    break;
+                }
             }
             case (R.id.buttonSubtraction): {
                 DisplaySymbol = 2;
                 DotState = 0;
-                try {
-                    DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
-                } catch (NumberFormatException e) {
-                    System.out.println("Could not parse " + e);
-                }
-                if (DisplayCounterThree == 0) {
-                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                if (SubtractionState == 0) {
+                    try {
+                        DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    if (DisplayCounterThree == 0) {
+                        DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                    } else {
+                        DisplayCounterThree = DisplayCounterThree - DisplayCounterOne;
+                    }
+                    DisplayCounterOne = 0;
+                    DisplayInfo.setText(null);
+                    DisplayInfo_Visible.append("-");
+                    PlusState = 1;
+                    SubtractionState = 1;
+                    MultiplicationState = 1;
+                    DeleteState = 1;
+                    break;
                 } else {
-                    DisplayCounterThree = DisplayCounterThree - DisplayCounterOne;
+                    System.out.println("Ошибка");
+                    break;
                 }
-                DisplayCounterOne = 0;
-                DisplayInfo.setText(null);
-                DisplayInfo_Visible.append("-");
-                break;
             }
             case (R.id.buttonMultiplication): {
                 DisplaySymbol = 3;
                 DotState = 0;
-                try {
-                    DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
-                } catch (NumberFormatException e) {
-                    System.out.println("Could not parse " + e);
-                }
-                if (DisplayCounterThree == 0) {
-                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                if (MultiplicationState == 0) {
+                    try {
+                        DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    if (DisplayCounterThree == 0) {
+                        DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                    } else {
+                        DisplayCounterThree = DisplayCounterThree * DisplayCounterOne;
+                    }
+                    DisplayCounterOne = 0;
+                    DisplayInfo.setText(null);
+                    DisplayInfo_Visible.append("*");
+                    PlusState = 1;
+                    SubtractionState = 1;
+                    MultiplicationState = 1;
+                    DeleteState = 1;
+                    break;
                 } else {
-                    DisplayCounterThree = DisplayCounterThree * DisplayCounterOne;
+                    System.out.println("Ошибка");
+                    break;
                 }
-                DisplayCounterOne = 0;
-                DisplayInfo.setText(null);
-                DisplayInfo_Visible.append("*");
-                break;
             }
             case (R.id.buttonDelete): {
                 DisplaySymbol = 4;
                 DotState = 0;
-                try {
-                    DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
-                } catch (NumberFormatException e) {
-                    System.out.println("Could not parse " + e);
-                }
-                if (DisplayCounterThree == 0) {
-                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                if (DeleteState == 0) {
+                    try {
+                        DisplayCounterOne = Double.parseDouble(DisplayInfo.getText().toString());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Could not parse " + e);
+                    }
+                    if (DisplayCounterThree == 0) {
+                        DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                    } else {
+                        DisplayCounterThree = DisplayCounterThree / DisplayCounterOne;
+                    }
+                    DisplayCounterOne = 0;
+                    DisplayInfo.setText(null);
+                    DisplayInfo_Visible.append("/");
+                    PlusState = 1;
+                    SubtractionState = 1;
+                    MultiplicationState = 1;
+                    DeleteState = 1;
+                    break;
+
                 } else {
-                    DisplayCounterThree = DisplayCounterThree / DisplayCounterOne;
+                    System.out.println("Ошибка");
+                    break;
                 }
-                DisplayCounterOne = 0;
-                DisplayInfo.setText(null);
-                DisplayInfo_Visible.append("/");
-                break;
             }
             case (R.id.buttonEqual): {
                 if (DisplaySymbol == 1) {
@@ -275,9 +362,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterThree + DisplayCounterTwo;
-                    DisplayInfo.setText(" " + a);
-                    DisplayInfo_Visible.append("=" + a);
+                    DisplayEqual = DisplayCounterThree + DisplayCounterTwo;
+                    DisplayCounterThree = 0;
+                    DisplayCounterTwo = 0;
+
+                    DisplayInfo.setText(" " + DisplayEqual);
+                    DisplayInfo_Visible.append("=" + DisplayEqual);
                     break;
                 } else if (DisplaySymbol == 2) {
                     try {
@@ -285,20 +375,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterThree - DisplayCounterTwo;
-                    DisplayInfo.setText(" " + a);
-                    DisplayInfo_Visible.append("=" + a);
+                    DisplayEqual = DisplayCounterThree - DisplayCounterTwo;
+                    DisplayCounterThree = 0;
+                    DisplayCounterTwo = 0;
+                    DisplayInfo.setText(" " + DisplayEqual);
+                    DisplayInfo_Visible.append("=" + DisplayEqual);
                     break;
-
                 } else if (DisplaySymbol == 3) {
                     try {
                         DisplayCounterTwo = Double.parseDouble(DisplayInfo.getText().toString());
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterThree * DisplayCounterTwo;
-                    DisplayInfo.setText(" " + a);
-                    DisplayInfo_Visible.append("=" + a);
+                    DisplayEqual = DisplayCounterThree * DisplayCounterTwo;
+                    DisplayCounterThree = 0;
+                    DisplayCounterTwo = 0;
+                    DisplayInfo.setText(" " + DisplayEqual);
+                    DisplayInfo_Visible.append("=" + DisplayEqual);
                     break;
                 } else if (DisplaySymbol == 4) {
                     try {
@@ -306,9 +399,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterThree / DisplayCounterTwo;
-                    DisplayInfo.setText(" " + a);
-                    DisplayInfo_Visible.append("=" + a);
+                    DisplayEqual = DisplayCounterThree / DisplayCounterTwo;
+                    DisplayCounterThree = 0;
+                    DisplayCounterTwo = 0;
+                    DisplayInfo.setText(" " + DisplayEqual);
+                    DisplayInfo_Visible.append("=" + DisplayEqual);
                     break;
 
                 }
@@ -329,9 +424,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
-
 }
+
 
 
 

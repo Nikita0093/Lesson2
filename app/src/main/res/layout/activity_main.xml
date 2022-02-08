@@ -53,6 +53,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/editTextSize"
             android:visibility="invisible" />
+
         <TextView
             android:id="@+id/DisplayInfo_Visible"
             android:layout_width="wrap_content"
@@ -207,6 +208,7 @@
     </GridLayout>
 
 </FrameLayout>
+
 
 
 
