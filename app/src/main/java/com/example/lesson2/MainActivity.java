@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -35,12 +35,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonZero;
     Button buttonDot;
     Button buttonEqual;
+   RadioButton ThemeOne;
+   RadioButton ThemeTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(ThemeApp.CurrentTheme);
         setContentView(R.layout.activity_main);
-
         Initialization();
         SetListener();
 
@@ -85,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonMultiplication.setOnClickListener(this);
         buttonSubtraction.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
+        ThemeOne.setOnClickListener(this);
+        ThemeTwo.setOnClickListener(this);
 
     }
 
@@ -111,11 +115,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonZero = findViewById(R.id.buttonZero);
         buttonDot = findViewById(R.id.buttonDot);
         buttonEqual = findViewById(R.id.buttonEqual);
+        ThemeOne = findViewById(R.id.ThemeOne);
+        ThemeTwo= findViewById(R.id.ThemeTwo);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case (R.id.ThemeOne): {
+                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2;
+                recreate();
+                break;
+            }
+            case (R.id.ThemeTwo): {
+                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2_Second;
+                recreate();
+                break;
+            }
             case (R.id.buttonZero): {
                 DisplayInfo.append("0");
                 break;
