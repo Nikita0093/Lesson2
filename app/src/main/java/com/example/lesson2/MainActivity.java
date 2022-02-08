@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     double DisplayCounterOne = 0;
     double DisplayCounterTwo = 0;
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonZero;
     Button buttonDot;
     Button buttonEqual;
-   RadioButton ThemeOne;
-   RadioButton ThemeTwo;
+    RadioButton ThemeOne;
+    RadioButton ThemeTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
     public void Initialization() {
         DisplayInfo = findViewById(R.id.DisplayInfo);
         buttonBackspace = findViewById(R.id.buttonBackspace);
@@ -116,22 +116,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDot = findViewById(R.id.buttonDot);
         buttonEqual = findViewById(R.id.buttonEqual);
         ThemeOne = findViewById(R.id.ThemeOne);
-        ThemeTwo= findViewById(R.id.ThemeTwo);
+        ThemeTwo = findViewById(R.id.ThemeTwo);
+
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case (R.id.ThemeOne): {
-                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2;
-                recreate();
-                break;
-            }
-            case (R.id.ThemeTwo): {
-                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2_Second;
-                recreate();
-                break;
-            }
             case (R.id.buttonZero): {
                 DisplayInfo.append("0");
                 break;
@@ -275,8 +267,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
+
+        switch (view.getId()) {
+            case (R.id.ThemeOne): {
+                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2;
+                break;
+            }
+            case (R.id.ThemeTwo): {
+                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2_Second;
+                break;
+            }
+        }
+        recreate();
     }
+
+
 }
+
 
 
 

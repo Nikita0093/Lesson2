@@ -4,4 +4,8 @@
     <dimen name="Height_Button">55dp</dimen>
     <dimen name="Radius_Button">30dp</dimen>
     <dimen name="editTextSize">20sp</dimen>
+    <dimen name="RadioGroupWidth">110sp</dimen>
+    <dimen name="RadioGroup_Height">50sp</dimen>
+    <dimen name="RadioButton_width">110sp</dimen>
+    <dimen name="RadioButton_height">50sp</dimen>
 </resources>

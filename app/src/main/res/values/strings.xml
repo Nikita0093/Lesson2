@@ -21,4 +21,6 @@
     <string name="Dot">.</string>
     <string name="Equal">=</string>
     <string name="lets_calculate">Lets Calculate!</string>
+    <string name="Theme_one">ThemeOne</string>
+    <string name="Theme_two">ThemeTwo</string>
 </resources>
