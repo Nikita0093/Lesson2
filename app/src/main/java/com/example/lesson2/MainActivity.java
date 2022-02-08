@@ -2,6 +2,7 @@ package com.example.lesson2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +13,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     double DisplayCounterOne = 0;
     double DisplayCounterTwo = 0;
+    double DisplayCounterThree = 0;
     int DotState = 0;
     int DisplaySymbol = 0;
     TextView DisplayInfo;
+    TextView DisplayInfo_Visible;
     Button buttonBackspace;
     Button buttonOne;
     Button buttonTwo;
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("DisplayInfo", DisplayInfo.getText().toString());
+        outState.putString("DisplayInfo_Visible", DisplayInfo_Visible.getText().toString());
         outState.putDouble("DisplayCounterOne", DisplayCounterOne);
         outState.putDouble("DisplayCounterTwo", DisplayCounterTwo);
         outState.putInt("DisplaySymbol", DisplaySymbol);
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DisplayCounterOne = savedInstanceState.getDouble("DisplayCounterOne");
         DisplayCounterTwo = savedInstanceState.getDouble("DisplayCounterTwo");
         DisplayInfo.setText(savedInstanceState.getString("DisplayInfo"));
+        DisplayInfo_Visible.setText(savedInstanceState.getString("DisplayInfo_Visible"));
     }
 
     private void SetListener() {
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void Initialization() {
         DisplayInfo = findViewById(R.id.DisplayInfo);
+        DisplayInfo_Visible = findViewById(R.id.DisplayInfo_Visible);
         buttonBackspace = findViewById(R.id.buttonBackspace);
         buttonHooks = findViewById(R.id.buttonHooks);
         buttonPercent = findViewById(R.id.buttonPercent);
@@ -125,47 +131,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case (R.id.buttonZero): {
                 DisplayInfo.append("0");
+                DisplayInfo_Visible.append("0");
                 break;
             }
             case (R.id.buttonOne): {
                 DisplayInfo.append("1");
+                DisplayInfo_Visible.append("1");
                 break;
             }
             case (R.id.buttonTwo): {
                 DisplayInfo.append("2");
+                DisplayInfo_Visible.append("2");
                 break;
             }
             case (R.id.buttonThree): {
                 DisplayInfo.append("3");
+                DisplayInfo_Visible.append("3");
                 break;
             }
             case (R.id.buttonFour): {
                 DisplayInfo.append("4");
+                DisplayInfo_Visible.append("4");
                 break;
             }
             case (R.id.buttonFive): {
                 DisplayInfo.append("5");
+                DisplayInfo_Visible.append("5");
                 break;
             }
             case (R.id.buttonSix): {
                 DisplayInfo.append("6");
+                DisplayInfo_Visible.append("6");
                 break;
             }
             case (R.id.buttonSeven): {
                 DisplayInfo.append("7");
+                DisplayInfo_Visible.append("7");
                 break;
             }
             case (R.id.buttonEight): {
                 DisplayInfo.append("8");
+                DisplayInfo_Visible.append("8");
                 break;
             }
             case (R.id.buttonNine): {
                 DisplayInfo.append("9");
+                DisplayInfo_Visible.append("9");
                 break;
             }
             case (R.id.buttonDot): {
                 if (DotState == 0) {
                     DisplayInfo.append(".");
+                    DisplayInfo_Visible.append(".");
                     DotState++;
                 } else {
 
@@ -177,6 +194,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case (R.id.buttonBackspace): {
                 DotState = 0;
                 DisplayInfo.setText(null);
+                DisplayInfo_Visible.setText(null);
+                DisplayCounterThree = 0;
+                DisplayCounterTwo = 0;
                 break;
             }
             case (R.id.buttonPlus): {
@@ -187,6 +207,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (NumberFormatException e) {
                     System.out.println("Could not parse " + e);
                 }
+                DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                DisplayCounterOne = 0;
+                DisplayInfo_Visible.append("+");
                 DisplayInfo.setText(null);
 
                 break;
@@ -199,7 +222,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (NumberFormatException e) {
                     System.out.println("Could not parse " + e);
                 }
+                if (DisplayCounterThree == 0) {
+                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                } else {
+                    DisplayCounterThree = DisplayCounterThree - DisplayCounterOne;
+                }
+                DisplayCounterOne = 0;
                 DisplayInfo.setText(null);
+                DisplayInfo_Visible.append("-");
                 break;
             }
             case (R.id.buttonMultiplication): {
@@ -210,7 +240,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (NumberFormatException e) {
                     System.out.println("Could not parse " + e);
                 }
+                if (DisplayCounterThree == 0) {
+                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                } else {
+                    DisplayCounterThree = DisplayCounterThree * DisplayCounterOne;
+                }
+                DisplayCounterOne = 0;
                 DisplayInfo.setText(null);
+                DisplayInfo_Visible.append("*");
                 break;
             }
             case (R.id.buttonDelete): {
@@ -221,7 +258,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (NumberFormatException e) {
                     System.out.println("Could not parse " + e);
                 }
+                if (DisplayCounterThree == 0) {
+                    DisplayCounterThree = DisplayCounterThree + DisplayCounterOne;
+                } else {
+                    DisplayCounterThree = DisplayCounterThree / DisplayCounterOne;
+                }
+                DisplayCounterOne = 0;
                 DisplayInfo.setText(null);
+                DisplayInfo_Visible.append("/");
                 break;
             }
             case (R.id.buttonEqual): {
@@ -231,8 +275,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterOne + DisplayCounterTwo;
+                    double a = DisplayCounterThree + DisplayCounterTwo;
                     DisplayInfo.setText(" " + a);
+                    DisplayInfo_Visible.append("=" + a);
                     break;
                 } else if (DisplaySymbol == 2) {
                     try {
@@ -240,8 +285,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterOne - DisplayCounterTwo;
+                    double a = DisplayCounterThree - DisplayCounterTwo;
                     DisplayInfo.setText(" " + a);
+                    DisplayInfo_Visible.append("=" + a);
                     break;
 
                 } else if (DisplaySymbol == 3) {
@@ -250,8 +296,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterOne * DisplayCounterTwo;
+                    double a = DisplayCounterThree * DisplayCounterTwo;
                     DisplayInfo.setText(" " + a);
+                    DisplayInfo_Visible.append("=" + a);
                     break;
                 } else if (DisplaySymbol == 4) {
                     try {
@@ -259,8 +306,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (NumberFormatException e) {
                         System.out.println("Could not parse " + e);
                     }
-                    double a = DisplayCounterOne / DisplayCounterTwo;
+                    double a = DisplayCounterThree / DisplayCounterTwo;
                     DisplayInfo.setText(" " + a);
+                    DisplayInfo_Visible.append("=" + a);
                     break;
 
                 }
@@ -270,14 +318,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case (R.id.ThemeOne): {
                 ThemeApp.CurrentTheme = R.style.MyTheme_lesson2;
+                recreate();
                 break;
             }
             case (R.id.ThemeTwo): {
                 ThemeApp.CurrentTheme = R.style.MyTheme_lesson2_Second;
+                recreate();
                 break;
+
             }
         }
-        recreate();
     }
 
 

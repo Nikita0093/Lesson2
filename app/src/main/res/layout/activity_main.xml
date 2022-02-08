@@ -42,10 +42,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:orientation="vertical"
-        android:rowCount="6">
+        android:rowCount="7">
 
         <TextView
             android:id="@+id/DisplayInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:textColor="@color/white"
+            android:textSize="@dimen/editTextSize"
+            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/DisplayInfo_Visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnSpan="4"
