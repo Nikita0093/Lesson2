@@ -9,4 +9,5 @@
     <dimen name="RadioButton_width">110sp</dimen>
     <dimen name="RadioButton_height">50sp</dimen>
     <dimen name="button_settings_size">8sp</dimen>
+    <dimen name="TV_settings">16sp</dimen>
 </resources>

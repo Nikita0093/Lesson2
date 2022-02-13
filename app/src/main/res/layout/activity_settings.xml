@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -12,7 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:rowCount="3">
+        android:rowCount="4">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Theme_choice"
+            android:textColor="@color/white"
+            android:textSize="@dimen/TV_settings" />
 
         <RadioGroup
             android:layout_width="@dimen/RadioGroupWidth"
@@ -51,3 +59,4 @@
 
 
 </FrameLayout>
+
