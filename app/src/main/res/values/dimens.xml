@@ -8,4 +8,5 @@
     <dimen name="RadioGroup_Height">50sp</dimen>
     <dimen name="RadioButton_width">110sp</dimen>
     <dimen name="RadioButton_height">50sp</dimen>
+    <dimen name="button_settings_size">8sp</dimen>
 </resources>

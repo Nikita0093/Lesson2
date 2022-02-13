@@ -13,26 +13,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RadioGroup
+
+        <Button
+            android:id="@+id/Settings"
             android:layout_width="@dimen/RadioGroupWidth"
-            android:layout_height="@dimen/RadioGroup_Height">
+            android:layout_height="@dimen/RadioGroup_Height"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/settings" />
 
-            <RadioButton
-                android:id="@+id/ThemeOne"
-                android:layout_width="@dimen/RadioButton_width"
-                android:layout_height="@dimen/RadioButton_height"
-                android:layout_weight="1"
-                android:text="@string/Theme_one"
-                android:textColor="@color/white" />
-
-            <RadioButton
-                android:id="@+id/ThemeTwo"
-                android:layout_width="@dimen/RadioButton_width"
-                android:layout_height="@dimen/RadioButton_height"
-                android:layout_weight="1"
-                android:text="@string/Theme_two"
-                android:textColor="@color/white" />
-        </RadioGroup>
 
     </LinearLayout>
 

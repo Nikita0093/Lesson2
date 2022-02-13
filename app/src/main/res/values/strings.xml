@@ -23,4 +23,6 @@
     <string name="lets_calculate">Lets Calculate!</string>
     <string name="Theme_one">ThemeOne</string>
     <string name="Theme_two">ThemeTwo</string>
+    <string name="settings">Settings</string>
+    <string name="back_to_calculator">Back to Calculator</string>
 </resources>

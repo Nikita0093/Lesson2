@@ -3,6 +3,7 @@ package com.example.lesson2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,8 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonZero;
     Button buttonDot;
     Button buttonEqual;
-    RadioButton ThemeOne;
-    RadioButton ThemeTwo;
+    Button Settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonMultiplication.setOnClickListener(this);
         buttonSubtraction.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
-        ThemeOne.setOnClickListener(this);
-        ThemeTwo.setOnClickListener(this);
+        Settings.setOnClickListener(this);
 
     }
 
@@ -125,8 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonZero = findViewById(R.id.buttonZero);
         buttonDot = findViewById(R.id.buttonDot);
         buttonEqual = findViewById(R.id.buttonEqual);
-        ThemeOne = findViewById(R.id.ThemeOne);
-        ThemeTwo = findViewById(R.id.ThemeTwo);
+        Settings = findViewById(R.id.Settings);
 
 
     }
@@ -405,23 +403,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     DisplayInfo.setText(" " + DisplayEqual);
                     DisplayInfo_Visible.append("=" + DisplayEqual);
                     break;
-
                 }
             }
-        }
-
-        switch (view.getId()) {
-            case (R.id.ThemeOne): {
-                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2;
-                recreate();
-                break;
+            case (R.id.Settings): {
+                Intent intent = new Intent(MainActivity.this, com.example.lesson2.Settings.class);
+                startActivity(intent);
             }
-            case (R.id.ThemeTwo): {
-                ThemeApp.CurrentTheme = R.style.MyTheme_lesson2_Second;
-                recreate();
-                break;
 
-            }
         }
     }
 }
