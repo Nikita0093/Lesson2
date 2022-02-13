@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sea"
+    tools:context=".Greetings">
+
+    <TextView
+        android:id="@+id/Greetings"
+        android:layout_width="200sp"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:text="Created by N.D"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="200sp"
+        android:layout_height="65dp"
+        android:backgroundTint="#071F77"
+        android:text="Start"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Greetings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,7 +52,8 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
             case (R.id.Back): {
                 Intent intent = new Intent(Settings.this, MainActivity.class);
                 startActivity(intent);
-            }
+                finish();
+                }
         }
 
     }
