@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonDot;
     Button buttonEqual;
     Button Settings;
+    Settings settingsTwo = new Settings();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -412,7 +413,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
-
 
 
 

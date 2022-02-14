@@ -11,10 +11,12 @@ import android.widget.TextView;
 public class Greetings extends AppCompatActivity implements View.OnClickListener {
     TextView Greetings;
     Button btnStart;
+    Settings set = new Settings();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(ThemeApp.CurrentTheme);
         setContentView(R.layout.activity_greetings);
         initialization();
         setListeners();
@@ -34,8 +36,8 @@ public class Greetings extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case(R.id.btnStart):{
+        switch (view.getId()) {
+            case (R.id.btnStart): {
                 Intent intent = new Intent("Calculator");
                 startActivity(intent);
                 finish();
